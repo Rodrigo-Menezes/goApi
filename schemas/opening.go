@@ -1,6 +1,10 @@
 package schemas
 
-import "gorm.io/gorm"
+import (
+	"time"
+
+	"gorm.io/gorm"
+)
 
 type Opening struct {
 	gorm.Model
@@ -9,5 +13,18 @@ type Opening struct {
 	Location string
 	Remote   bool
 	Link     string
-	Selary   int64
+	Salary   int64
+}
+
+type OpeningResponse struct {
+	ID        uint      `json:"id"`
+	CreatedAt time.Time `json:"createdaAt"`
+	UpdatedAt time.Time `json:"updatedAt"`
+	DeletedAt time.Time `json:"deletedAt,omitempty"`
+	Role      string    `json:"role"`
+	Company   string    `json:"company"`
+	Location  string    `json:"location"`
+	Remote    bool      `json:"remote"`
+	Link      string    `json:"link"`
+	Salary    int64     `json:"selary"`
 }
